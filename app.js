@@ -9,18 +9,10 @@ dotenv.config({ path: `${__dirname}/config.env` });
 app.use(
   cors({
     credentials: true,
-    origin: true,
+    origin: "*",
   })
 );
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type, Authorization"
-  );
-  next();
-});
+
 app.use(express.json());
 app.use(
   helmet({
