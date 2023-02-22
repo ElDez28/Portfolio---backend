@@ -9,10 +9,10 @@ dotenv.config({ path: `${__dirname}/config.env` });
 app.use(
   cors({
     credentials: true,
-    origin: "*",
+    origin: true,
   })
 );
-
+app.options("*", cors());
 app.use(express.json());
 app.use(
   helmet({
